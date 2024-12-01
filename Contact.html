@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+background-image:url("image1.jpg");
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .contact-form button:hover {
+            background-color: ;
+        }
+
+        footer {
+            background-color:black;
+            color: white;
+            text-align: center;
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <section>
+       
+        <p>If you have any questions or inquiries, please feel free to get in touch with us using the contact form below, or use the contact details provided.</p>
+
+        <form class="contact-form"  method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <h3>More Ways to Reach Us:</h3>
+        <ul>
+            <li>Email: <a href="mailto:contact@company.com">contact@company.com</a></li>
+            <li>Phone: +1 (555) 123-4567</li>
+            <li>Address: 123 Main Street, City, Country</li>
+        </ul>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Our Company. All rights reserved.</p>
+    </footer>
+
+</html>

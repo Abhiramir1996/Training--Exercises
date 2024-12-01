@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tittle>
+<style>
+
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+.container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+h2{text-align:center;}
+ .form-group {
+            margin-bottom: 15px;
+        }
+label {
+            font-size: 16px;
+            font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"],input[type="Number"],input[type="username"], input[type="reset"]{
+
+	    width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: 2px solid #ccc;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+.form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+</style>
+
+</tittle>
+<script src="Script.js"></script>
+    
+
+
+</head>
+
+
+<body>
+<div class="container">
+ <h2>Registration Form</h2>
+    <form action="#" method="POST">
+
+<div class="form-group">
+  <label for="fname"><b>First name:</b></label>
+  <input type="text" id="fname" name="fname" ><br>
+</div>
+ <div class="form-group">
+  <label for="lname"><b>Last name:</b></label>
+  <input type="text" id="lname" name="lname"><br>
+  </div>
+ <div class="form-group">
+  <label for="DOB"><b>Date of Birth:</b></label>
+  <input type="date" id="DOB" name="DOB" required> <br>
+</div>
+ <div class="form-group">
+  <label for="age"><b>Age:</b></label>
+<input type="Number" id="age" name="Age" ><br>
+</div>
+ <div class="form-group">
+<label for="gender"><b>Gender:</b></label> 
+  	<label for="gender"><b>Male</b></label> 
+	<input type="radio"  name="gender" value="Male" required>
+
+ 
+ 	 <label for="gender"><b>Female</b></label> 
+	<input type="radio" name="gender" value="Female"><br>
+</div>
+ <div class="form-group">
+	<label for="mobile"><b>Phone number</b></label>  
+        <input type="Number" id="mobile" name="mobile" maxlength="10" required>  <br>
+</div>
+
+ <div class="form-group">
+	<label for="email"><b>Email address:</b></label>
+  	<input type="email" id="email" name="email" required><br>
+</div>
+ <div class="form-group">
+	<label for="Address"><b>Address:</b></label>
+  	<textarea id="Address" name="Address"></textarea><br>
+</div>
+ <div class="Dropdown">
+	<label for="state"><b>State:</b></label>
+	<select type="text" name="state" onchange="updateCities()" id="state">
+	<option value="" selected="selected">Select state</option>
+
+  	<option value="Kerala">KERALA</option>
+  	<option value="karnataka">KARNATAKA</option>
+  	<option value="tamilnadu">TAMILNADU</option>
+	</select><br>
+</div>
+
+
+<div class="form-group">
+            <label for="city"><b>City:</b></label>
+            <select id="city">
+                <option value="">Select City</option>
+               
+            </select><br>
+</div>
+
+
+
+
+<div class="form-group">
+
+
+
+  	<label for="username"><b>Username</b></label>  
+        <input type="username" id="username" name="username" >  <br>
+</b>
+  <div class="form-group">
+        <label for="psw"><b>Password</b></label>  
+        <input type="password" id="psw" name="password"  pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long" required> <br> 
+  </b>
+<div class="form-group">
+        <label for="psw-repeat"><b>Confirm Password</b></label>  
+        <input type="password" id="psw-repeat" name="psw-repeat" > <br> 
+</b>
+
+<div class="form-group">
+
+	 <input type="submit" value="Submit">
+ 	 <input type="reset" value="Reset">
+</div>
+	</form>
+<div class="form-footer">
+        <p>Already have an account? <a href="Login.html">Login here</a></p>
+    </div>
+
+</body>
+</html>
