@@ -8,27 +8,44 @@ body {
 header {
             background-color:black;
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 10px;
+            text-align:center;
+display:block;
         }
-
-nav img{
+.navbar-logo{
 	height:50px;
+	margin-right:20px;
+
 	}
 
- nav {
-            background-color: Violet;
-            overflow: hidden;
-        }
+.topnav {
+ 	 overflow: hidden;
+  	background-color: violet;
+	padding:10px;
+	}
 
-nav a {
-            color: white;
-            padding: 14px 20px;
-            display: inline-block;
-            text-decoration: none;
-            text-align: center;
-        }
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
  .content {
             padding: 20px;
             text-align: center;
@@ -83,14 +100,14 @@ nav a {
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
-footer {
+.form-footer {
  	 background-color:black;
   	color:white;
-  	padding: 10px;
+  	Padding:20px;
   	text-align: center;
-	position:fixed;
-	bottom:0;
-	width:100%;
+	
+	
+	
 	margin-top:20px;
 	}
         
