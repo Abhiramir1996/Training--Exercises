@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>About Us</title>
+<title>About us</title>
 
 <style>
 
@@ -10,27 +10,86 @@ body {
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:violet;
 	    text-align: center;
         }
  header {
-            background-color: #333;
-            color: #fff;
+            background-color: black;
+            color: white;
             padding: 1rem;
             text-align: center;
         }
+/* Navigation Bar */
+.topnav {
+    overflow: hidden;
+    background-color: blue;
+    display: flex; /* Using flexbox for alignment */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Vertically center the items */
+    padding: 0 15px; /* Optional: Add some padding on the left and right */
+}
+
+.topnav .navbar-logo {
+    height: 50px;
+    padding: 5px 15px;
+}
+
+.topnav-right {
+    display: flex; /* Make sure right items are aligned */
+    margin-left: auto; /* Push the right section to the right */
+}
+
+.topnav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav .topnav-right a {
+    margin-left: 20px; /* Optional: Adds spacing between right-side links */
+}
+
+
  section {
             padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color:white;
         }
-  footer {
+.section img {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+  .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            text-align: center;
+            margin: 15px;
+            max-width: 250px;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+  .form-footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 1rem;
-            position: fixed;
+            
             width: 100%;
             bottom: 0;
         }
@@ -41,6 +100,16 @@ body {
 	<header>
 	<h2>About Us</h2>
 	</header>
+<div class="topnav">
+<img src="logo.jpeg" alt="logo" class="navbar-logo">
+  <div class="topnav-right">
+    <a href="Home page.html">Home</a>
+	<a href="About us.html">About us</a>
+       <a href="Login.html">Login</a>
+	
+        <a href="Contact.html">Contact us</a>
+  </div>
+</div>
 <body>
 
 <section class="about-us">
@@ -49,22 +118,48 @@ body {
 
 <p>Founded in 1996, Our company has started as a small startup with a simple vision: to create innovative solutions that meet the evolving needs of industry. all thanks to the dedication, hard work, and creativity of our team.</p>
 
-
+<h2>Our Mission</h2>
+<p>At our company, we are dedicated to providing innovative solutions that help businesses succeed. We believe in the power of creativity, teamwork, and integrity to deliver exceptional results for our clients.</p>
 <P><h1>Our Values</h1></p>
-<p>Integrity: We believe in doing the right thing even when no one is watching.<p><br>
+Integrity: We believe in doing the right thing even when no one is watching.<br>
 Innovation: We thrive on creativity and continuously look for new ways to improve.<br>
 Customer Satisfaction: Our customers are at the heart of everything we do, and we go the extra mile to ensure they are happy.<br>
 Sustainability: We are committed to sustainability and strive to reduce our environmental impact.
 
+
+
+</section>
+
+        <section class="section">
+
+<h2>Meet Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="vinod tharakan.jpeg" alt="Team Member 1">
+                    <h3>Vinod Tharakan</h3>
+                    <p>Managing Director</p>
+</div>
+                <div class="team-member">
+                    <img src="daniel.jpg" alt="Team Member 2">
+                    <h3>Daniel R Vena</h3>
+                    <p>VP - Corporate Development</p>
+                </div>
+                
+            <div class="team-member">
+                    <img src="cynthia.jpeg" alt="Team Member 3">
+                    <h3>Cynthia Roy</h3>
+                    <p>Financial Controller</p>
+                </div>
+</div>
 
     </section>
 </body>
 
 
 
- <footer>
+ <div class="form-footer">
         <p>&copy; 2024 Our Company. All rights reserved.</p>
-    </footer>
+    </div>
 
 
 </html>

@@ -1,66 +1,169 @@
-<!DOCTYPE html>
 <html>
 <head>
+    <title>Login Page</title>
+    <script>
+        function validateUsername() {
+            var username = document.getElementById("username").value;
+            var errorMessage = document.getElementById("usernameError");
 
+            if (username === "") {
+                errorMessage.textContent = "Username cannot be empty.";
+                errorMessage.style.color = "red";
+                return false;
+            } else if (username.length < 3) {
+                errorMessage.textContent = "must be at least 3 characters long.";
+                errorMessage.style.color = "red";
+                return false;
+            } else {
+                errorMessage.textContent = "";
+                return true;
+            }
+        }
+
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("passwordError");
+            
+            // Password regex for strong password validation
+            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+            if (password === "") {
+                errorMessage.textContent = "Password cannot be empty.";
+                errorMessage.style.color = "red";
+                return false;
+            } else if (!passwordPattern.test(password)) {
+                errorMessage.textContent = "Provide a strong password ";
+                errorMessage.style.color = "red";
+                return false;
+            } else {
+                errorMessage.textContent = "";
+                return true;
+            }
+        }
+
+        // Validate the form before submitting
+        function validateForm() {
+            var isUsernameValid = validateUsername();
+            var isPasswordValid = validatePassword();
+            return isUsernameValid && isPasswordValid;
+        }
+    </script>
 <style>
-
-
- body {
+* {
+            box-sizing: border-box;
+        }
+html, body {
+            height: 100%;
+            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+        }
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+margin-bottom:60px;
         }
+
+        header {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+z-index:1000;
+        }
+
+/* Navigation Bar */
+.topnav {
+    overflow: hidden;
+    background-color: blue;
+    display: flex; /* Using flexbox for alignment */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Vertically center the items */
+    padding: 0 15px; /* Optional: Add some padding on the left and right */
+width:100%;
+margin-top:50px;
+}
+
+.topnav .navbar-logo {
+    height: 50px;
+    padding: 5px 15px;
+}
+.topnav-right {
+    display: flex; /* Make sure right items are aligned */
+    margin-left: auto; /* Push the right section to the right */
+}
+
+.topnav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.topnav .topnav-right a {
+    margin-left: 20px; /* Optional: Adds spacing between right-side links */
+}
+
+
+
 .login-container {
             background-color: #fff;
-            padding: 40px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
+            
+            margin-top: 80px; /* Adjust to avoid header overlap */
+margin-bottom:40px;
         }
 
-        .login-container h1 {
+.login-container h1 {
             margin-bottom: 30px;
             font-size: 24px;
             color: #333;
         }
 
-        .login-container input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+ .login-container input {
+width:100%;
+margin:8px 0;
+border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
             color: #333;
-        }
-
-        .login-container input:focus {
+}
+       
+ .login-container input:focus {
             border-color: #4CAF50;
             outline: none;
         }
 
-        .login-container button {
+
+ .login-container button {
             width: 100%;
-            padding: 12px;
-            background-color: Gray;
+	padding:5px;
+	background-color: gray;
             color: white;
-            border: none;
+	border: none;
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
-        }
-
-        .login-container button:hover {
-            background-color: #45a049;
-        }
-
-        .login-container .forgot-password {
-            margin-top: 10px;
-            font-size: 14px;
+}
+.login-container .forgot-password {
+            margin-top: 8px;
+            font-size: 10px;
             color: #333;
         }
 
@@ -74,32 +177,70 @@
         }
 
 
-h1{color:Blue; text-align:center;}
+ /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 10px;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+        }
 
 
-</style>
+
+ </style>
 </head>
-
- 
-<br>
 <body>
-<div class="login-container">
-<h1>Login</h2>
-<form>
-  
-  <input type="text" name="username" placeholder="username" required><br>
-  
-  <input type="password" id="pass" name="password" placeholder="password" ><br><br>
 
-<input type="checkbox" id="pass"> <label for="pass"> Remember me   <a href="Forgot password?">Forgot password?</a></label><br>
- 
+    <header>
+        <h2>Welcome to our login page</h2>
+    </header>
 
-  <button type="submit"> Login </button> <br>
-
- </form>
-<div classs="signup">
-<p> Not a member? <a href="Signup.html ">Sign up now</a>
+<div class="topnav">
+<img src="logo.jpeg" alt="logo" class="navbar-logo">
+  <div class="topnav-right">
+    <a href="Home page.html">Home</a>
+	<a href="About us.html">About us</a>
+       <a href="Login.html">Login</a>
+	
+        <a href="Contact.html">Contact us</a>
+  </div>
 </div>
+
+    <div class="login-container">
+        <h1>Login</h1>
+        <form onsubmit="return validateForm()">
+            <input type="text" name="username" id="username" placeholder="Username" onfocusout="validateUsername()" required>
+            <div id="usernameError" class="error-message"></div> <!-- Error message container -->
+            <input type="password" id="password" name="password" placeholder="Password" onfocusout="validatePassword()" required><br><br>
+            <div id="passwordError" class="error-message"></div> <!-- Error message container -->
+            <input type="checkbox" id="password"> <label for="pass"> Remember me <a href="Forgot password?">Forgot password?</a></label><br>
+            <button type="submit"> Login </button> <br>
+        </form>
+        <div class="signup">
+            <p> Not a member? <a href="Signin.html">Sign in now</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </div>
 
 </body>
 </html>
+
+
+
+
+
+

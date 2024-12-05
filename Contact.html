@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    
-    <title>Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,7 +12,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-background-image:url("image1.jpg");
+            background-image: url("image1.jpg");
         }
 
         header {
@@ -22,6 +24,43 @@ background-image:url("image1.jpg");
 
         header h1 {
             margin: 0;
+        }
+
+        /* Navigation Bar */
+        .topnav {
+            overflow: hidden;
+            background-color: blue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .topnav .navbar-logo {
+            height: 50px;
+            padding: 5px 15px;
+        }
+
+        .topnav-right {
+            display: flex;
+            margin-left: auto;
+        }
+
+        .topnav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav .topnav-right a {
+            margin-left: 20px;
         }
 
         section {
@@ -36,7 +75,8 @@ background-image:url("image1.jpg");
             flex-direction: column;
         }
 
-        .contact-form input, .contact-form textarea {
+        .contact-form input,
+        .contact-form textarea {
             margin-bottom: 1rem;
             padding: 1rem;
             border: 1px solid #ccc;
@@ -55,43 +95,107 @@ background-image:url("image1.jpg");
         }
 
         .contact-form button:hover {
-            background-color: ;
+            background-color: #444;
         }
 
-        footer {
-            background-color:black;
+        .form-footer {
+            background-color: black;
             color: white;
             text-align: center;
             padding: 0;
-            position: fixed;
             width: 100%;
             bottom: 0;
         }
-    </style>
-</head>
 
+        .error {
+            color: red;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <script>
+        // Function to validate fields
+        function validateField(fieldId) {
+            let isValid = true;
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + "Error");
+
+            // Clear previous error message
+            errorSpan.textContent = "";
+
+            if (fieldId === "name") {
+                // Validate Name: only letters (A-Z, a-z) allowed
+                const fname = field.value.trim();
+                if (fname === "") {
+                    errorSpan.textContent = "Name is required.";
+                    isValid = false;
+                } else if (!/^[A-Za-z]+$/.test(fname)) {
+                    errorSpan.textContent = "Name must contain only letters (no numbers or special characters).";
+                    isValid = false;
+                }
+            } else if (fieldId === "email") {
+                // Validate Email: proper email format
+                const email = field.value.trim();
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (email === "") {
+                    errorSpan.textContent = "Email is required.";
+                    isValid = false;
+                } else if (!emailPattern.test(email)) {
+                    errorSpan.textContent = "Please enter a valid email address.";
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        // Function to handle form submission
+        function validateForm(event) {
+            let isFormValid = true;
+
+            // Validate each field
+            isFormValid &= validateField("name");
+            isFormValid &= validateField("email");
+
+            // If form is invalid, prevent submission
+            if (!isFormValid) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
 
 <body>
     <header>
-        <h1>Contact Us</h1>
+        <h1>Contact us</h1>
     </header>
 
-    <section>
-       
-        <p>If you have any questions or inquiries, please feel free to get in touch with us using the contact form below, or use the contact details provided.</p>
+    <div class="topnav">
+        <img src="logo.jpeg" alt="logo" class="navbar-logo">
+        <div class="topnav-right">
+            <a href="Home page.html">Home</a>
+            <a href="About us.html">About us</a>
+            <a href="Login.html">Login</a>
+            <a href="Contact.html">Contact us</a>
+        </div>
+    </div>
 
-        <form class="contact-form"  method="POST">
+    <section>
+        <p><b>If you have any questions or inquiries, please feel free to get in touch with us using the contact form below, or use the contact details provided.</b></p>
+
+        <form class="contact-form" method="POST" onsubmit="validateForm(event)">
             <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <input type="text" id="name" name="name" onfocusout="validateField('name')" required>
+            <span id="nameError" class="error"></span>
 
             <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" onfocusout="validateField('email')" required>
+            <span id="emailError" class="error"></span>
 
             <label for="message">Your Message:</label>
             <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
 
             <button type="submit">Submit</button>
-
         </form>
 
         <h3>More Ways to Reach Us:</h3>
@@ -103,8 +207,9 @@ background-image:url("image1.jpg");
 
     </section>
 
-    <footer>
+    <div class="form-footer">
         <p>&copy; 2024 Our Company. All rights reserved.</p>
-    </footer>
+    </div>
+</body>
 
 </html>
